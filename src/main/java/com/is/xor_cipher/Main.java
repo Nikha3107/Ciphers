@@ -1,6 +1,5 @@
 package com.is.xor_cipher;
 
-
 import com.is.xor_cipher.crypto.Xor_cipher;
 
 import java.util.Scanner;

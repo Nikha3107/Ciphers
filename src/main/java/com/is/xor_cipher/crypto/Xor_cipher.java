@@ -6,13 +6,22 @@ public class Xor_cipher {
 
     String gamma;
 
+    /**
+     * Медод для зашифровывания
+     * */
     public String encrypt(String sourceText){
         return crypt(sourceText, setRandomGamma(sourceText.length()));
     }
+    /**
+     * Медод для расщифровывания
+     * */
     public String decrypt(String sourceText,String gammaKey){
         return crypt(sourceText,gammaKey);
     }
 
+    /**
+     * Внутренний метод для вычисления шифртекста или исходного текста
+     * */
     private  String crypt(String sourceText,String gamma){
         StringBuilder resultText = new StringBuilder();
         for (int i = 0; i < sourceText.length(); i++) {
@@ -21,6 +30,9 @@ public class Xor_cipher {
         return resultText.toString();
     }
 
+    /**
+     * Внутренний метод для создания случайной гаммы
+     * */
     private String setRandomGamma(int length){
         Random random = new Random();
         StringBuilder result = new StringBuilder();
@@ -30,7 +42,9 @@ public class Xor_cipher {
         this.gamma = result.toString();
         return result.toString();
     }
-
+    /**
+     * getter для гаммы
+     * */
     public String getGamma() {
         return gamma;
     }

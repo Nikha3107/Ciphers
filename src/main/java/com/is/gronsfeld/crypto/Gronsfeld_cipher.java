@@ -9,13 +9,13 @@ public class Gronsfeld_cipher {
             'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х',
             'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
     /**
-     * Медод для расшифровывания
+     * Медод для зашифровывания
      * */
     public String encrypt(String sourceText,int[] key) {
         return crypt(sourceText,key,TypeOfCrypt.ENCRYPT);
     }
     /**
-     * Медод для зашифровывания
+     * Медод для расшифровывания
      * */
     public String decrypt(String sourceText,int[] key) {
         return crypt(sourceText,key,TypeOfCrypt.DECRYPT);
@@ -40,6 +40,7 @@ public class Gronsfeld_cipher {
         }
         return stringBuilder.toString();
     }
+
     /**
      * Внутренний метод для вычисления сдвига
      * */
@@ -55,8 +56,6 @@ public class Gronsfeld_cipher {
                 index -= shift;
                 if (index < 0) {
                     return Math.floorMod(index,alphabet.size());
-                } else {
-
                 }
                 break;
         }
