@@ -1,20 +1,19 @@
 package com.is.xor_cipher;
 
+import com.is.file.File;
 import com.is.xor_cipher.crypto.Xor_cipher;
-
-import java.util.Scanner;
 
 public class Main {
 
+    final static String in = "src/main/resources/in.txt";
+    final static String cipherText = "src/main/resources/cipher-text.txt";
+    final static String sourceText = "src/main/resources/source-text";
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите текст: ");
-        String text = scanner.nextLine();
+        String text = File.fileReader(in);
         Xor_cipher cipher = new Xor_cipher();
         String ciphertext = cipher.encrypt(text);
-        System.out.println("Зашифрованное сообщение: "+ciphertext);
-        System.out.println("Гамма: "+cipher.getGamma());
-        System.out.println("Расшифрованное сообщение: "+cipher.decrypt(ciphertext,cipher.getGamma()));
+        File.fileWriter(ciphertext,cipherText);
+        File.fileWriter(cipher.decrypt(ciphertext,cipher.getGamma()),sourceText);
     }
 
 }

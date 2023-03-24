@@ -37,7 +37,7 @@ public class Xor_cipher {
         Random random = new Random();
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            result.append((char) (random.nextInt(256))); // use all possible characters
+            result.append((char) (random.nextInt(256))); // Использование всех возможных символов
         }
         this.gamma = result.toString();
         return result.toString();
